@@ -131,3 +131,6 @@ dmypy.json
 
 .vscode
 ipynb_tmp
+iris_prof.json
+iris_prof.htmlcov
+development.html
