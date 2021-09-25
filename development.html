@@ -1,81 +1,273 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>iris profile</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            var instances = M.AutoInit();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        var instances = M.AutoInit();
+      });
     </script>
 
-    <nav>
-      <div class="nav-wrapper teal lighten-2">
-        <a href="#" class="brand-logo">iris profile</a>
+    <nav class="nav-extended">
+      <div class="nav-wrapper lighten-3">
+        <a href="#" class="brand-logo center"> IRIS PROFILE</a>
+      </div>
+
+      <div class="row nav-content">
+        <div class="col s12 l7">
+          <ul class="tabs tabs-fixed-width tabs-transparent">
+            <li class="tab col s3 l1"><a class="active text-lighten-3" href="#overview">Overview</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#variables">Variables</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#interactions">Interactions</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#correlations">Correlations</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#missing_values">Missing Values</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#sample">Sample</a></li>
+            <li class="tab col s3 l1"><a class="text-lighten-3" href="#duplicate_rows">Duplicate Rows</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
-    <div class="row">
-        <div class="col s12 l7">
-            <ul class="tabs tabs-fixed-width">
-            <li class="tab col s3 l1"><a class="active" href="#overview">Overview</a></li>
-            <li class="tab col s3 l1"><a href="#variables">Variables</a></li>
-            <li class="tab col s3 l1"><a href="#interactions">Interactions</a></li>
-            <li class="tab col s3 l1"><a href="#correlations">Correlations</a></li>
-            <li class="tab col s3 l1"><a href="#missing_values">Missing Values</a></li>
-            <li class="tab col s3 l1"><a href="#sample">Sample</a></li>
-            <li class="tab col s3 l1"><a href="#duplicate_rows">Duplicate Rows</a></li>
-            </ul>
-        </div>
+    <div class="container">
+      <div id="overview" class="tab col s12">
+        
 
-        <div id="overview" class="tab col s12">
-          
-          Overview
-          
-        </div>
+<style>
+    .coll-item-bubble {
+        border-radius: 16px;
+        border-color: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .sec-content-large {
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    .sec-content-small {
+        font-size: 13px;
+        margin-left: 3px;
+        vertical-align: middle;
+    }
+</style>
 
-        <div id="variables" class="tab col s12">
-          
-          Variables
-          
+<div class="row" id="overview-content">
+    <div class="col card medium s3">
+        <i class="material-icons large circle teal-text text-lighten-3">stacked_bar_chart</i>
+        <div class="card-title" style="text-align:left">Dataset Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>No. of observations<span class="secondary-content sec-content-large"> 150</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>No. of variables <span class="secondary-content sec-content-large"> 5</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Missing cells 
+                    <span class="secondary-content sec-content-large"> 0<span class="sec-content-small">0.0%</span></span>
+                </span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Duplicate Rows
+                    <span class="secondary-content sec-content-large"> 1<span class="sec-content-small">0.01%</span></span>
+                </span>  
+            </div>
         </div>
+    </div>
+    <div class="col card medium s3 offset-s1">
+        <i class="material-icons large circle teal-text text-lighten-3">donut_large</i>
+        <div class="card-title" style="text-align:left">Sample Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>Sample count <span class="secondary-content sec-content-large"> 150</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>No. of variables <span class="secondary-content sec-content-large"> 6</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Missing cells 
+                    <span class="secondary-content sec-content-large"> 0<span class="sec-content-small">0.0%</span></span>
+                </span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Duplicate Rows
+                    <span class="secondary-content sec-content-large"> 0<span class="sec-content-small">0.0%</span></span>
+                </span>  
+            </div>
+        </div>
+    </div>
+    <div class="col card medium s3 offset-s1">
+        <i class="material-icons large circle teal-text text-lighten-3">memory</i>
+        <div class="card-title" style="text-align:left">Sample Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>Dataset size<span class="secondary-content sec-content-large"> 5.98KiB</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Avg record size<span class="secondary-content sec-content-large"> 40.85B</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Sample size <span class="secondary-content sec-content-large"> 7.16KiB</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Avg sample record size<span class="secondary-content sec-content-large"> 48.85B</span></span>  
+            </div>
+        </div>
+    </div>
+</div>
 
-        <div id="interactions" class="tab col s12">
-          
-          Interactions
-          
-        </div>
+      </div>
 
-        <div id="correlations" class="tab col s12">
-          
-          Correlations
-          
-        </div>
+      <div id="variables" class="tab col s12">
+        
 
-        <div id="missing_values" class="tab col s12">
-          
-          Missing Values
-          
+<div class="row" id="variables-content">
+<ul class="col s10 collapsible">
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Numeric">looks_one</i>df_index</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 150 [1.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> 1 [0.01]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> 74.5</td> </tr>
+            </tbody>
+            </table>
+            
         </div>
+    </li>
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Numeric">looks_one</i>sepal_length</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 35 [0.23]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> 5.843</td> </tr>
+            </tbody>
+            </table>
+            
+        </div>
+    </li>
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Numeric">looks_one</i>sepal_width</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 23 [0.15]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> 3.057</td> </tr>
+            </tbody>
+            </table>
+            
+        </div>
+    </li>
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Numeric">looks_one</i>petal_length</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 43 [0.29]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> 3.758</td> </tr>
+            </tbody>
+            </table>
+            
+        </div>
+    </li>
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Numeric">looks_one</i>petal_width</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 22 [0.15]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> 1.199</td> </tr>
+            </tbody>
+            </table>
+            
+        </div>
+    </li>
+    
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="Categorical">category</i>species</div>
+        <div class="collapsible-body">
+            
+            <table style="width: 70%">
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> 3 [0.02]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> 0 [0.0]%</td> </tr>
+            </table>
+            
+        </div>
+    </li>
+    
 
-        <div id="sample" class="tab col s12">
-          
-          Sample
-          
-        </div>
 
-        <div id="duplicate_rows" class="tab col s12">
-          
-          Duplicate Rows
-          
-        </div>
+</ul>
+</div>
+
+
+
+      </div>
+
+      <div id="interactions" class="tab col s12">
+         Interactions 
+      </div>
+
+      <div id="correlations" class="tab col s12">
+         Correlations 
+      </div>
+
+      <div id="missing_values" class="tab col s12">
+         Missing Values 
+      </div>
+
+      <div id="sample" class="tab col s12">
+         Sample 
+      </div>
+
+      <div id="duplicate_rows" class="tab col s12">
+         Duplicate Rows 
+      </div>
     </div>
   </body>
 </html>
-      

@@ -1,0 +1,88 @@
+{% extends "base.html.jinja" %}
+{% block overview %}
+
+<style>
+    .coll-item-bubble {
+        border-radius: 16px;
+        border-color: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    .sec-content-large {
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+    .sec-content-small {
+        font-size: 13px;
+        margin-left: 3px;
+        vertical-align: middle;
+    }
+</style>
+
+<div class="row" id="overview-content">
+    <div class="col card medium s3">
+        <i class="material-icons large circle teal-text text-lighten-3">stacked_bar_chart</i>
+        <div class="card-title" style="text-align:left">Dataset Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>No. of observations<span class="secondary-content sec-content-large"> {{ full_table.n }}</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>No. of variables <span class="secondary-content sec-content-large"> {{ full_table.n_var }}</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Missing cells 
+                    <span class="secondary-content sec-content-large"> {{ full_table.n_cells_missing }}<span class="sec-content-small">{{ full_table.p_cells_missing | round(2) }}%</span></span>
+                </span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Duplicate Rows
+                    <span class="secondary-content sec-content-large"> {{ full_table.n_duplicates }}<span class="sec-content-small">{{ full_table.p_duplicates | round(2) }}%</span></span>
+                </span>  
+            </div>
+        </div>
+    </div>
+    <div class="col card medium s3 offset-s1">
+        <i class="material-icons large circle teal-text text-lighten-3">donut_large</i>
+        <div class="card-title" style="text-align:left">Sample Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>Sample count <span class="secondary-content sec-content-large"> {{ table.n }}</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>No. of variables <span class="secondary-content sec-content-large"> {{ table.n_var }}</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Missing cells 
+                    <span class="secondary-content sec-content-large"> {{ table.n_cells_missing }}<span class="sec-content-small">{{ table.p_cells_missing | round(2) }}%</span></span>
+                </span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Duplicate Rows
+                    <span class="secondary-content sec-content-large"> {{ table.n_duplicates }}<span class="sec-content-small">{{ table.p_duplicates | round(2) }}%</span></span>
+                </span>  
+            </div>
+        </div>
+    </div>
+    <div class="col card medium s3 offset-s1">
+        <i class="material-icons large circle teal-text text-lighten-3">memory</i>
+        <div class="card-title" style="text-align:left">Sample Statistics</div>
+        <div class="collection" style="font-size:15px; text-align:left"> 
+            <div class="coll-item-bubble collection-item red lighten-5">
+                <span>Dataset size<span class="secondary-content sec-content-large"> {{ full_table.memory_size | byte_converter }}</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Avg record size<span class="secondary-content sec-content-large"> {{ full_table.record_size | byte_converter }}</span></span>  
+            </div>
+            <div class="collection-item red lighten-5 coll-item-bubble">
+                <span>Sample size <span class="secondary-content sec-content-large"> {{ table.memory_size | byte_converter }}</span></span>  
+            </div>
+            <div class="collection-item teal lighten-5 coll-item-bubble">
+                <span>Avg sample record size<span class="secondary-content sec-content-large"> {{ table.record_size | byte_converter }}</span></span>  
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

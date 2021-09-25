@@ -1,0 +1,38 @@
+{% extends "overview.html.jinja" %}
+{% block variables %}
+
+<div class="row" id="variables-content">
+<ul class="col s10 collapsible">
+    {% for variable, details in variables.items() %}
+    <li> 
+        <div class="collapsible-header"><i class="material-icons tooltipped teal-text text-lighten-2" data-position="left" data-tooltip="{{ details.type }}">{{ details.type | type_icon }}</i>{{ variable }}</div>
+        <div class="collapsible-body">
+            {% if details.type == "Numeric" %}
+            <table style="width: 50%">
+            <tbody>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> {{details.n_distinct}} [{{ details.p_distinct | round(2)}}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> {{details.n_missing}} [{{ details.p_missing | round(2) }}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">all_inclusive</i></td><td style="width:70%">Infinite</td><td class="teal-text text-lighten-1"> {{details.n_infinite}} [{{ details.p_infinite | round(2) }}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">exposure_zero</i></td><td style="width:70%">Zeros</td><td class="teal-text text-lighten-1"> {{details.n_zeros}} [{{ details.p_zeros | round(2) }}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">remove</i></td><td style="width:70%">Negative</td><td class="teal-text text-lighten-1"> {{details.n_negative}} [{{ details.p_negative | round(2) }}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">analytics</i></td><td style="width:70%">Mean</td><td class="teal-text text-lighten-1"> {{ details.mean | round(3) }}</td> </tr>
+            </tbody>
+            </table>
+            {% elif details.type == "Categorical" %}
+            <table style="width: 70%">
+                <tr> <td><i class="material-icons teal-text text-lighten-2">check_circle</i></td><td style="width:70%">Distinct</td><td class="teal-text text-lighten-1"> {{details.n_distinct}} [{{ details.p_distinct | round(2)}}]%</td> </tr>
+                <tr> <td><i class="material-icons teal-text text-lighten-2">block</i></td><td style="width:70%">Missing</td><td class="teal-text text-lighten-1"> {{details.n_missing}} [{{ details.p_missing | round(2) }}]%</td> </tr>
+            </table>
+            {% else %}
+            <div> Could not determine type </div>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+
+
+</ul>
+</div>
+
+
+{% endblock %}
